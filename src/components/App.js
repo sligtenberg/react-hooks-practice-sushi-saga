@@ -6,21 +6,22 @@ const API = "http://localhost:3001/sushis";
 
 function App() {
   const [sushiData, setSushiData] = useState([])
+  const [plates, setPlates] = useState([])
 
   useEffect(() => {
     fetch(API)
     .then(r => r.json())
     .then(data => {
-      console.log(data)
       setSushiData(data)
     })
   }, [])
   
 
+
   return (
     <div className="app">
-      <SushiContainer sushiData={sushiData}/>
-      <Table />
+      <SushiContainer sushiData={sushiData} setPlates={setPlates} plates={plates}/>
+      <Table plates={plates}/>
     </div>
   );
 }

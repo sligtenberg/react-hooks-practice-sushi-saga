@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
-function Sushi({ sushi }) {
+function Sushi({ sushi, setPlates, plates }) {
+  const [isEaten, setIsEaten] = useState(false)
+
+  const handlePlateClick = () => {
+    setIsEaten(true)
+    setPlates([...plates, null])
+  }
+
   return (
     <div className="sushi">
-      <div className="plate" onClick={/* Give me a callback! */ null}>
-        {/* Tell me if this sushi has been eaten! */}
-        {false ? null : (
+      <div className="plate" onClick={handlePlateClick}>
+        {isEaten ? null : (
           <img
             src={sushi.img_url}
             alt={sushi.name}
