@@ -1,16 +1,22 @@
 import React, { useState } from "react";
+import SushiContainer from "./SushiContainer";
 
-function Sushi({ sushi, setPlates, plates }) {
+function Sushi({ sushi, setPlates, plates, setMoney, money }) {
   const [isEaten, setIsEaten] = useState(false)
 
   const handlePlateClick = () => {
-    setIsEaten(true)
-    setPlates([...plates, null])
+    if (money >= sushi.price) {
+      setIsEaten(true)
+      setPlates([...plates, null])
+      setMoney(money - sushi.price)
+    }
+
+    else alert("Out of money")
   }
 
   return (
     <div className="sushi">
-      <div className="plate" onClick={handlePlateClick}>
+      <div className="plate" onClick={isEaten ? null : handlePlateClick}>
         {isEaten ? null : (
           <img
             src={sushi.img_url}

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import MoreButton from "./MoreButton";
 import Sushi from "./Sushi";
 
-function SushiContainer({ sushiData, setPlates, plates }) {
+function SushiContainer({ sushiData, setPlates, plates, setMoney, money }) {
   const [index, setIndex] = useState(0)
 
   const displayedSushi = sushiData.filter(sushi => {
@@ -14,6 +14,8 @@ function SushiContainer({ sushiData, setPlates, plates }) {
     sushi={sushi}
     setPlates={setPlates}
     plates={plates}
+    setMoney={setMoney}
+    money={money}
   />)
 
   return (
