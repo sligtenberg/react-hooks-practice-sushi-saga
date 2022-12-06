@@ -14,7 +14,7 @@ function SushiContainer({ sushiData }) {
   return (
     <div className="belt">
       {sushiComponents}
-      <MoreButton />
+      <MoreButton setIndex={setIndex} index={index}/>
     </div>
   );
 }
